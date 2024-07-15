@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #292524;
+  color: #fafaf9;
+  font-family: "sono";
+  padding: 48px 64px;
+}
+
+#root {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.loading-message {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 48px;
+}
+
+.header {
+  margin-bottom: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoBox img {
+  width: 64px;
+  height: 64px;
+}
+
+.logoBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+h1 {
+  font-size: 42px;
+  text-transform: uppercase;
+  font-family: "coiny";
+  color: #fafaf9;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.factForm {
+  background-color: #44403c;
+  margin-bottom: 40px;
+  padding: 16px 32px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.factForm input,
+.factForm select {
+  width: 220px;
+  background-color: #57534e;
+  border: none;
+  border-radius: 100px;
+  padding: 16px;
+  font-size: 16px;
+  color: inherit;
+  font-family: inherit;
+}
+
+.factForm input:first-child {
+  flex-grow: 1;
+}
+
+.factForm input::placeholder {
+  color: #a8a29e;
+}
+
+.factForm span {
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 18px;
+}
+
+@media (max-width: 1070px) {
+  body {
+    padding: 32px 48px;
+  }
+
+  .factForm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .factForm input,
+  .factForm select {
+    width: auto;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 48px;
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.category {
+  margin-bottom: 16px;
+}
+
+.fact {
+  font-size: 20px;
+  line-height: 1.4;
+  color: #fafaf9;
+  background-color: #44403c;
+  margin-bottom: 16px;
+  padding: 16px 24px;
+  letter-spacing: -1px;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (max-width: 1200px) {
+  .fact {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+}
+
+.tag {
+  font-size: 14px;
+  font-style: italic;
+  text-transform: uppercase;
+  font-family: "coiny";
+  color: #fafaf9;
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 100px;
+}
+
+.voteButtons {
+  margin-left: auto;
+
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.voteButtons button {
+  background-color: #57534e;
+  border-radius: 100px;
+  padding: 6px 12px;
+  color: inherit;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  transition: 0.3s;
+}
+
+.voteButtons button:hover {
+  background-color: #292524;
+}
+
+.voteButtons button:disabled {
+  background-color: #44403c;
+}
+
+ul {
+  list-style: none;
+}
+
+.source:link,
+.source:visited {
+  color: #a8a29e;
+  text-decoration: none;
+  margin-left: 12px;
+  transition: 0.5s;
+}
+
+.source:hover,
+.source:active {
+  color: #3b82f6;
+}
+
+.btn {
+  font-family: "Coiny", sans-serif;
+  font-size: 17px;
+  text-transform: uppercase;
+  padding: 16px 0 13px;
+  border: none;
+  background-image: linear-gradient(135deg, #3b82f6, #ef4444, #16a34a, #eab308);
+  color: inherit; /*inherit from body*/
+  transition: 0.3s;
+  border-radius: 100px; /*use a large value to always make the rounded corners*/
+  cursor: pointer;
+}
+
+.btn-large {
+  font-size: 20px;
+  padding: 20px 32px 17px;
+}
+
+.btn-all-categories {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.btn-category {
+  width: 100%;
+  background-image: none;
+}
+
+.btn:hover {
+  transform: scale(110%) rotate(-2deg);
+}
