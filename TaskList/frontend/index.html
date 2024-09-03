@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .task {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Another To-Do List</h1>
+    <form id="taskForm">
+      <input type="text" id="taskInput" placeholder="New task" required />
+      <button type="submit">Add Task</button>
+    </form>
+    <ul id="taskList"></ul>
+
+    <script>
+      document
+        .getElementById("taskForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const taskInput = document.getElementById("taskInput");
+          const task = taskInput.value;
+          taskInput.value = "";
+
+          console.log("SENT", task);
+
+          // Send new task to the backend
+          const response = await fetch("http://localhost:3000/tasks", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ task }),
+          });
+
+          console.log("SENT GOT: ", response);
+
+          if (response.ok) {
+            loadTasks();
+          }
+        });
+
+      async function loadTasks() {
+        const response = await fetch("http://localhost:3000/tasks");
+        const tasks = await response.json();
+        console.log("RES tasks: ", tasks);
+        const taskList = document.getElementById("taskList");
+        taskList.innerHTML = "";
+        tasks.forEach((task) => {
+          const li = document.createElement("li");
+          li.className = "task";
+          li.textContent = task;
+          taskList.appendChild(li);
+        });
+      }
+
+      loadTasks();
+    </script>
+  </body>
+</html>
